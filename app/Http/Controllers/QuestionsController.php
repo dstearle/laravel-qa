@@ -14,9 +14,17 @@ class QuestionsController extends Controller
      */
     public function index()
     {
-        $questions = Question::latest()->paginate(5);
+        //Remove comments to use laravel debugbar
+        //\DB::enableQueryLog();
+
+        //paginate(5) creates 5 questions where as paginate(8) would make 8
+        $questions = Question::with('user')->latest()->paginate(10);
 
         return view('questions.index', compact('questions'));
+        //Use below instead if using laravel debugbar
+        //view('questions.index', compact('questions'))->render();
+
+        dd(\DB::getQueryLog());
     }
 
     /**
