@@ -23,7 +23,7 @@
 
                 <div class="card-body">
 
-                    <form action=" {{ route('questions.store') }} " method="post">
+                    <form action="{{ route('questions.store') }}" method="post">
 
                         @csrf
 
@@ -31,7 +31,7 @@
 
                             <label for="question-title">Question Title</label>
 
-                            <input type="text" name="title" id="question-title" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }} ">
+                            <input type="text" name="title" value="{{ old('title') }}" id="question-title" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}">
 
                             @if ($errors->has('title'))
                                 <div class="invalid-feedback">
@@ -47,12 +47,12 @@
 
                             <label for="question-body">Explain Your Question</label>
 
-                            <textarea name="body" id="question-body" rows="10" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }} "></textarea>
+                            <textarea name="body" id="question-body" rows="10" class="form-control {{ $errors->has('body') ? 'is-invalid' : '' }}">{{ old('body') }}</textarea>
 
                             @if ($errors->has('body'))
                                 <div class="invalid-feedback">
 
-                                    <strong> {{ $errors->first('body') }} </strong>
+                                    <strong>{{ $errors->first('body') }}</strong>
 
                                 </div>
                             @endif
