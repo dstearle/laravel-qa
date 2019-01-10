@@ -76,7 +76,28 @@ class QuestionsController extends Controller
      */
     public function edit(Question $question)
     {
+        //Checks to see if user has proper authentication to edit a question
+        if(\Gate::denies('update-question', $question)) {
+            
+            //Denies the user access to edit a question
+            abort(403, 'Access denied');
+
+        }
+
+        //Allows user access to view the edit page to edit a question
         return view("questions.edit", compact('question'));
+
+        //Alternative way to do same thing above
+        //Checks to see if user has proper authentication to edit a question
+        //if(\Gate::allows('update-question', $question)) {
+        //    
+        //    //Allows user access to view the edit page to edit a question
+        //    return view("questions.edit", compact('question'));
+        //
+        //}
+
+        //Tells user to fuck off if they do not have proper authentication
+        //abort(403, 'Access denied');
     }
 
     /**
@@ -88,8 +109,17 @@ class QuestionsController extends Controller
      */
     public function update(AskQuestionRequest $request, Question $question)
     {
+        //Checks to see if user has proper authentication to update a question
+        if(\Gate::denies('update-question', $question)) {
+            
+            //Denies the user access to update a question
+            abort(403, 'Access denied');
+
+        }
+
         $question->update($request->only('title', 'body'));
 
+        //Allows user access to view the update page to update a question
         return redirect('/questions')->with('success', 'Your question has been updated.');
     }
 
@@ -101,8 +131,17 @@ class QuestionsController extends Controller
      */
     public function destroy(Question $question)
     {
+        //Checks to see if user has proper authentication to delete a question
+        if(\Gate::denies('update-question', $question)) {
+            
+            //Denies the user access to delete a question
+            abort(403, 'Access denied');
+
+        }
+
         $question->delete();
 
+        //Allows user access to delete a question
         return redirect('/questions')->with('success', "Your question has been deleted.");
     }
 }

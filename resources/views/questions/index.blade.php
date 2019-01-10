@@ -71,20 +71,30 @@
 
                                     <div class="ml-auto">
 
-                                        <a href="{{ route('questions.edit', $question->id) }}" class="btn btn-sm btn-outline-info">Edit</a>
+                                        {{-- Shows/Hides update button depending on user access --}}
+                                        @if (Auth::user()->can('update-question', $question))
 
-                                        <form class="form-delete" method="post" action="{{ route('questions.destroy', $question->id) }}">
+                                            <a href="{{ route('questions.edit', $question->id) }}" class="btn btn-sm btn-outline-info">Edit</a>
 
-                                            @method('DELETE')
-                                            @csrf
+                                        @endif
 
-                                            <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure?')">
+                                        {{-- Shows/Hides delete button depending on user access --}}
+                                        @if (Auth::user()->can('delete-question', $question))
 
-                                                Delete
+                                            <form class="form-delete" method="post" action="{{ route('questions.destroy', $question->id) }}">
 
-                                            </button>
+                                                @method('DELETE')
+                                                @csrf
 
-                                        </form>
+                                                <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure?')">
+
+                                                    Delete
+
+                                                </button>
+
+                                            </form>
+
+                                        @endif
 
                                     </div>
 
