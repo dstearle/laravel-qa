@@ -37,8 +37,18 @@ class Answer extends Model
 
         static::deleted(function($answer) {
 
+            $question = $answer->question;
+
             //Decrements the answers counter when an answer is deleted
-            $answer->question->decrement('answers_count');
+            $question->decrement('answers_count');
+
+            //If statement to check if an answer is rated as "best answer"
+            if($question->best_answer_id == $answer->id) {
+
+                $question->best_answer_id = NULL;
+
+                $question->save();
+            }
 
         });
 
@@ -47,6 +57,12 @@ class Answer extends Model
     public function getCreatedDateAttribute() {
 
         return $this->created_at->diffForHumans();
+        
+    }
+
+    public function getStatusAttribute() {
+
+        return $this->id == $this->question->best_answer_id ? 'vote-accepted' : '';
         
     }
 

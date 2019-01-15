@@ -38,7 +38,7 @@
 
                             </a>
 
-                            <a href="" title="Mark this answer as best answer" class="vote-accepted mt-2">
+                            <a href="" title="Mark this answer as best answer" class="{{ $answer->status }} mt-2">
                                 
                                 <i class="btn btn-outline-warning">$</i>
 
