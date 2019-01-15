@@ -38,13 +38,40 @@
 
                             </a>
 
-                            <a href="" title="Mark this answer as best answer" class="{{ $answer->status }} mt-2">
+                            {{-- Checks if the user has authorization to accept an answer --}}
+                            @can ('accept', $answer)
+
+                                <a href="" title="Mark this answer as best answer" class="{{ $answer->status }} mt-2"
+                                    onclick="event.preventDefault(); document.getElementById('accept-answer-{{ $answer->id }}').submit();">
+                                    
+                                    <i class="btn btn-outline-warning">$</i>
+
+                                    <span class="favorites-count">123</span>
+
+                                </a>
+
+                                <form id="accept-answer-{{ $answer->id }}" action="{{ route('answers.accept', $answer->id ) }}" method="POST" style="display:none;">
                                 
-                                <i class="btn btn-outline-warning">$</i>
+                                    @csrf
 
-                                <span class="favorites-count">123</span>
 
-                            </a>
+                                </form>
+
+                            @else
+
+                                @if($answer->is_best)
+
+                                    <a title="The question owner accepted this answer as best answer" class="{{ $answer->status }} mt-2">                                        
+                                        
+                                        <i class="btn btn-outline-warning">$</i>
+
+                                        <span class="favorites-count">123</span>
+
+                                    </a>
+
+                                @endif
+
+                            @endcan
 
                         </div>
 
