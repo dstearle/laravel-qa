@@ -51,29 +51,69 @@
                         <div class="media-body">
 
                             {!! $answer->body_html !!}
+                            
+                            <div class="row">
 
-                            {{-- Shows the name of the author for each answer and date created --}}
-                            <div class="float-right">
+                                <div class="col-4">
 
-                                {{-- Date the answer was created--}}
-                                <span class="text-muted">Answered {{ $answer->created_date }}</span>
+                                    <div class="ml-auto">
 
-                                {{-- User avatar and name --}}
-                                <div class="media mt-2">
+                                        {{-- Determines if user can see update button --}}
+                                        {{-- @can is alternative way to do same thing as @if like for the delete button below --}}
+                                        @can ('update', $answer)
 
-                                    <a href="{{ $answer->user->url }}" class="pr-2">
+                                            <a href="{{ route('questions.answers.edit', [$question->id, $answer->id]) }}" class="btn btn-sm btn-outline-info">Edit</a>
 
-                                        <img src="{{ $answer->user->avatar }}">
+                                        @endcan
 
-                                    </a>
+                                        {{-- Determines if user can see delete button --}}
+                                        @can ('delete', $answer)
 
-                                    <div class="media-body mt-1">
+                                            <form class="form-delete" method="post" action="{{ route('questions.answers.destroy', [$question->id, $answer->id]) }}">
 
-                                        <a href="{{ $answer->user->url }}">
+                                                @method('DELETE')
+                                                @csrf
 
-                                            {{ $answer->user->name }}
-                                        
+                                                <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure?')">
+
+                                                    Delete
+
+                                                </button>
+
+                                            </form>
+
+                                        @endcan
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-4"></div>
+
+                                {{-- Shows the name of the author for each answer and date created --}}
+                                <div class="col-4">
+
+                                    {{-- Date the answer was created--}}
+                                    <span class="text-muted">Answered {{ $answer->created_date }}</span>
+
+                                    {{-- User avatar and name --}}
+                                    <div class="media mt-2">
+
+                                        <a href="{{ $answer->user->url }}" class="pr-2">
+
+                                            <img src="{{ $answer->user->avatar }}">
+
                                         </a>
+
+                                        <div class="media-body mt-1">
+
+                                            <a href="{{ $answer->user->url }}">
+
+                                                {{ $answer->user->name }}
+                                            
+                                            </a>
+
+                                        </div>
 
                                     </div>
 

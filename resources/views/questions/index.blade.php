@@ -69,36 +69,6 @@
 
                                     </h3>
 
-                                    <div class="ml-auto">
-
-                                        {{-- Determines if user can see update button --}}
-                                        {{-- @can is alternative way to do same thing as @if like for the delete button below --}}
-                                        @can ('update', $question)
-
-                                            <a href="{{ route('questions.edit', $question->id) }}" class="btn btn-sm btn-outline-info">Edit</a>
-
-                                        @endcan
-
-                                        {{-- Determines if user can see delete button --}}
-                                        @can ('delete', $question)
-
-                                            <form class="form-delete" method="post" action="{{ route('questions.destroy', $question->id) }}">
-
-                                                @method('DELETE')
-                                                @csrf
-
-                                                <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure?')">
-
-                                                    Delete
-
-                                                </button>
-
-                                            </form>
-
-                                        @endcan
-
-                                    </div>
-
                                 </div>
 
                                 <p class="lead">
