@@ -37,18 +37,8 @@ class Answer extends Model
 
         static::deleted(function($answer) {
 
-            $question = $answer->question;
-
             //Decrements the answers counter when an answer is deleted
-            $question->decrement('answers_count');
-
-            //If statement to check if an answer is rated as "best answer"
-            if($question->best_answer_id == $answer->id) {
-
-                $question->best_answer_id = NULL;
-
-                $question->save();
-            }
+            $answer->$question->decrement('answers_count');
 
         });
 
