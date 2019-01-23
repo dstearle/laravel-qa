@@ -61,7 +61,10 @@
 
                                 @if($answer->is_best)
 
-                                    <a title="The question owner accepted this answer as best answer" class="{{ $answer->status }} mt-2">                                        
+                                    <a title="The question owner accepted this answer as best answer" 
+                                        class="{{ $answer->status }} mt-2"
+                                        onclick="event.preventDefault(); document.getElementById('accept-answer-{{ $answer->id }}').submit();"
+                                    >                                        
                                         
                                         <i class="btn btn-outline-warning">$</i>
 

@@ -28,17 +28,17 @@ class Answer extends Model
 
         parent::boot();
 
-        static::created(function($answer) {
+        static::created(function ($answer) {
 
             //Increases the answers counter when an answer is created
             $answer->question->increment('answers_count');
 
         });
 
-        static::deleted(function($answer) {
+        static::deleted(function ($answer) {
 
             //Decrements the answers counter when an answer is deleted
-            $answer->$question->decrement('answers_count');
+            $answer->question->decrement('answers_count');
 
         });
 
@@ -52,13 +52,13 @@ class Answer extends Model
 
     public function getStatusAttribute() {
 
-        return $this->id == $this->isBest() ? 'vote-accepted' : '';
+        return $this->isBest() ? 'vote-accepted' : '';
         
     }
 
     public function getIsBestAttribute() {
 
-        return $this->id == $this->isBest();
+        return $this->isBest();
         
     }
 
