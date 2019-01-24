@@ -33,9 +33,9 @@
                             
                                 <div class="vote">
 
-                                    <strong> {{ $question->votes }} </strong>
+                                    <strong> {{ $question->votes_count }} </strong>
 
-                                    {{ str_plural('vote', $question->votes) }}
+                                    {{ str_plural('vote', $question->votes_count) }}
 
                                 </div>
 
