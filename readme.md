@@ -7,9 +7,9 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-NOTES FROM ME!:
+NOTES FROM ME! :
 
-A good link if you are interested in cloning this or any Laravel repo here is a good link: https://devmarketer.io/learn/setup-laravel-project-cloned-github-com/
+- A good link if you are interested in cloning this or any Laravel repo here is a good link: https://devmarketer.io/learn/setup-laravel-project-cloned-github-com/
 
 ## About Laravel
 
