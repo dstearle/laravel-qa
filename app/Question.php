@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Question extends Model
 {
+    // Refactored code from below
+    use VotableTrait;
+    
     protected $fillable = ['title', 'body'];
 
     public function user() {
@@ -92,22 +95,23 @@ class Question extends Model
         
     }
 
-    public function votes() {
+    // Refactored to VotableTrait.php
+    // public function votes() {
 
-        return $this->morphToMany(User::class, 'votable');
+    //     return $this->morphToMany(User::class, 'votable');
         
-    }
+    // }
 
-    public function upVotes() {
+    // public function upVotes() {
 
-        return $this->votes()->wherePivot('vote', 1);
+    //     return $this->votes()->wherePivot('vote', 1);
         
-    }
+    // }
 
-    public function downVotes() {
+    // public function downVotes() {
 
-        return $this->votes()->wherePivot('vote', -1);
+    //     return $this->votes()->wherePivot('vote', -1);
         
-    } 
+    // } 
     
 }
