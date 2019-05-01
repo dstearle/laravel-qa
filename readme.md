@@ -10,7 +10,7 @@
 NOTES FROM ME! :
 
 - A good link if you are interested in cloning this or any Laravel repo here is a good link: https://devmarketer.io/learn/setup-laravel-project-cloned-github-com/.
-- To run use (php artisan serve), then in the top bar type localhost/questions to access the application.
+- To run use (php artisan serve), then in the top bar type http://localhost:8000/questions to access the application.
 
 ## About Laravel
 
