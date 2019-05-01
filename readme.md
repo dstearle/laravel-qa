@@ -13,6 +13,7 @@ NOTES FROM ME! :
 - To run use (php artisan serve), then in the top bar type http://localhost:8000/questions to access the application.
 - Having trouble using (php artisan migrate)? Check the .env file and if you are using XAMPP the default databse username is "root" and the password is just empty.
 - This project comes with database seeder files so that you can run (php artisan db:seed) which will seed your database with everything it needs (users, questions, etc).
+- If you would like to log in as one of the users grab one their emails from the user tables and use the default password of "secret".
 
 ## About Laravel
 
