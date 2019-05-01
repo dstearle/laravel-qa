@@ -7,6 +7,14 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
+NOTES FROM ME! :
+
+- A good link if you are interested in cloning this or any Laravel repo here is a good link: https://devmarketer.io/learn/setup-laravel-project-cloned-github-com/.
+- To run use (php artisan serve), then in the top bar type http://localhost:8000/questions to access the application.
+- Having trouble using (php artisan migrate)? Check the .env file and if you are using XAMPP the default databse username is "root" and the password is just empty.
+- This project comes with database seeder files so that you can run (php artisan db:seed) which will seed your database with everything it needs (users, questions, etc).
+- If you would like to log in as one of the users grab one their emails from the user tables and use the default password of "secret".
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
