@@ -11,6 +11,7 @@ NOTES FROM ME! :
 
 - A good link if you are interested in cloning this or any Laravel repo here is a good link: https://devmarketer.io/learn/setup-laravel-project-cloned-github-com/.
 - To run use (php artisan serve), then in the top bar type http://localhost:8000/questions to access the application.
+- Having trouble using (php artisan migrate)? Check the .env file and if you are using XAMPP the default databse username is "root" and the password is just empty.
 
 ## About Laravel
 
