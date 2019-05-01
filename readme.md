@@ -7,7 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-NOTES FROM ME! :
+Setting Up A Cloned Repo :
 
 - A good link if you are interested in cloning this or any Laravel repo here is a good link: https://devmarketer.io/learn/setup-laravel-project-cloned-github-com/.
 - To run use (php artisan serve), then in the top bar type http://localhost:8000/questions to access the application.
