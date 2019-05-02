@@ -53,7 +53,9 @@ class Question extends Model
 
     public function getBodyHtmlAttribute() {
 
-        return \Parsedown::instance()->text($this->body);
+        // "clean" is from Purifier
+        return clean($this->bodyHtml());
+
     }
 
     public function answers() {
@@ -93,6 +95,24 @@ class Question extends Model
 
         return $this->favorites->count();
         
+    }
+
+    public function getExcerptAttribute() {
+
+        return $this->excerpt(250);
+
+    }
+
+    public function excerpt($length) {
+
+        return str_limit(strip_tags($this->bodyHtml()), $length);
+
+    }
+
+    private function bodyHtml() {
+
+        return \Parsedown::instance()->text($this->body);
+
     }
 
     // Refactored to VotableTrait.php
