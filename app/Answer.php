@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Answer extends Model
 {
+    //Refactored code from below
+    use VotableTrait;
 
     public $fillable = ['body', 'user_id'];
     
@@ -21,7 +23,8 @@ class Answer extends Model
 
     public function getBodyHtmlAttribute() {
 
-        return \Parsedown::instance()->text($this->body);
+        // "clean" is from Purifier
+        return clean(\Parsedown::instance()->text($this->body));
     }
 
     public static function boot() {
@@ -68,22 +71,23 @@ class Answer extends Model
         
     }
 
-    public function votes() {
+    // Refactored to VotableTrait.php
+    // public function votes() {
 
-        return $this->morphToMany(User::class, 'votable');
+    //     return $this->morphToMany(User::class, 'votable');
         
-    }
+    // }
 
-    public function upVotes() {
+    // public function upVotes() {
 
-        return $this->votes()->wherePivot('vote', 1);
+    //     return $this->votes()->wherePivot('vote', 1);
         
-    }
+    // }
 
-    public function downVotes() {
+    // public function downVotes() {
 
-        return $this->votes()->wherePivot('vote', -1);
+    //     return $this->votes()->wherePivot('vote', -1);
         
-    }
+    // }
 
 }

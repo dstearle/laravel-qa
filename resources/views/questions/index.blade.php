@@ -81,7 +81,7 @@
                                 
                                 </p>
 
-                                {{ str_limit($question->body, 250) }}
+                                <div class="excerpt">{{ $question->excerpt(350) }}</div>
                             
                             </div>
                         

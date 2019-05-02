@@ -60,6 +60,8 @@
 
                             </form>
 
+                            <!-- Refactored to _accept.blade.php
+                                
                             {{-- Checks if the user has authorization to accept an answer --}}
                             @can ('accept', $answer)
 
@@ -96,7 +98,7 @@
 
                                 @endif
 
-                            @endcan
+                            @endcan -->
 
                         </div>
 
@@ -145,29 +147,11 @@
                                 {{-- Shows the name of the author for each answer and date created --}}
                                 <div class="col-4">
 
-                                    {{-- Date the answer was created--}}
-                                    <span class="text-muted">Answered {{ $answer->created_date }}</span>
+                                    @include ('shared._author', [
 
-                                    {{-- User avatar and name --}}
-                                    <div class="media mt-2">
-
-                                        <a href="{{ $answer->user->url }}" class="pr-2">
-
-                                            <img src="{{ $answer->user->avatar }}">
-
-                                        </a>
-
-                                        <div class="media-body mt-1">
-
-                                            <a href="{{ $answer->user->url }}">
-
-                                                {{ $answer->user->name }}
-                                            
-                                            </a>
-
-                                        </div>
-
-                                    </div>
+                                        'model' => $answer,
+                                        'label' => 'answered'
+                                    ])
 
                                 </div>
 
