@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Sets the opening page to show the questions index
+Route::get('/', 'QuestionsController@index');
 
 Auth::routes();
 

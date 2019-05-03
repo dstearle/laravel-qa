@@ -25,7 +25,7 @@
 
                     @include ('layouts._messages')
                     
-                    @foreach ($questions as $question)
+                    @forelse ($questions as $question)
 
                         <div class="media">
 
@@ -89,7 +89,16 @@
 
                         <hr>
 
-                    @endforeach
+                    <!-- Checks if any questions are available, if not displays an alert-->
+                    @empty
+
+                        <div class="alert alert-warning">
+
+                            <strong>Sorry!</strong> There are no questions available.
+                        
+                        </div>
+
+                    @endforelse
 
                     <div class="justify-content-center">
 

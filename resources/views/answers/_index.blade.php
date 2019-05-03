@@ -1,3 +1,6 @@
+<!-- Checks to see if there are any answers to show, hides if there are none available -->
+@if ($answersCount > 0)
+
 <div class="row mt-4">
 
         <div class="col-md-12">
@@ -172,3 +175,5 @@
         </div>
 
     </div>
+
+@endif
