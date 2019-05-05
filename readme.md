@@ -7,13 +7,15 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-What is this project?:
+<br>
+
+<strong>What is this project?:</strong>
 
 - The laravel-qa project is a question and answer post forum where users can ask questions, answer questions and vote or favorite either.
 - This project uses a database to store users and other information and also comes with files to seed the database for you.
 - The main purpose of this project is to show a mvc model using Laravel.
 
-Setting up a cloned repo of this project:
+<strong>Setting up a cloned repo of this project:</strong>
 
 - A good link if you are interested in cloning this or any Laravel repo here is a good link: https://devmarketer.io/learn/setup-laravel-project-cloned-github-com/.
 - To run use (php artisan serve), then in the top bar type http://localhost:8000/questions to access the application.
