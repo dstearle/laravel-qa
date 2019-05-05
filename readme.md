@@ -15,6 +15,8 @@
 - This project uses a database to store users and other information and also comes with files to seed the database for you.
 - The main purpose of this project is to show a mvc model using Laravel.
 
+<br>
+
 <strong>Setting up a cloned repo of this project:</strong>
 
 - A good link if you are interested in cloning this or any Laravel repo here is a good link: https://devmarketer.io/learn/setup-laravel-project-cloned-github-com/.
